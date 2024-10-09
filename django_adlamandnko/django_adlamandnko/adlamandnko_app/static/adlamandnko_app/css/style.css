@@ -1,4 +1,4 @@
-/* static/adlamandnko_app/css/styles.css */
+/* static/adlamandnko_app/css/style.css */
 .navbar-brand {
   font-weight: bold;
 }
@@ -6,3 +6,43 @@
 .navbar-nav .nav-link {
   font-size: 18px;
 }
+
+/* static/adlamandnko_app/css/style.css */
+.navbar-brand {
+  font-weight: bold;
+}
+.nav-link {
+  font-size: 1.1em;
+}
+.container {
+  padding-top: 20px;
+}
+.footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+#background.with-background .wrapper{
+  display : flex;
+  transition: all 1s ease-in-out;
+}
+
+#background.with-background img {
+  background-position: cover;
+  width : 100vw;
+  height : 600px;
+}
+
+#background.with-background {
+  width : 100vw;
+  overflow: hidden;
+  margin: 0 auto;
+  display : flex;
+}
+
+
