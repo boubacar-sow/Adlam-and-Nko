@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "adlamandnko"
+version = "0.1.0"
+description = "Website for Adlam and N'ko languages annotation"
+authors = ["Boubacar, <boubasow.pro@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1.2"
+django-bootstrap-themes = "^3.3.6"
+tree = "^0.2.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
