@@ -5,7 +5,7 @@
     {% load custom_tags %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Adlam and N'ko{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="{% static 'adlamandnko_app/css/style.css' %}">
   </head>
@@ -56,13 +56,7 @@
       </div>
     </nav>
     <section id="background" class="{% block body_class %}with-background{% endblock %}"> 
-      <div class="wrapper">     
-        {% get_body_class as body_class %}
-        {% if body_class == 'with-background' %}
-          <img src="{% static 'adlamandnko_app/images/adlam.jpg' %}" />
-          <img src="{% static 'adlamandnko_app/images/nko.jpg' %}" />
-        {% endif %}
-      </div>
+      <div class="wrapper"></div>
     </section>
     <div class="container mt-4">
       {% block content %}{% endblock %}

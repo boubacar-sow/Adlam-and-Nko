@@ -1,22 +1,31 @@
 /* static/adlamandnko_app/css/style.css */
-.navbar-brand {
-  font-weight: bold;
+#background {
+  width: 100vw;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
 }
 
-.navbar-nav .nav-link {
-  font-size: 18px;
+#background.with-background .wrapper {
+  display: flex;
+  transition: all 1s ease-in-out;
 }
 
-/* static/adlamandnko_app/css/style.css */
-.navbar-brand {
-  font-weight: bold;
+#background.with-background:not(.no-background) .wrapper {
+  background-image: url("{% static 'adlamandnko_app/images/adlam.jpg' %}");
+  background-position: cover;
+  width: 100vw;
+  height: 600px;
 }
-.nav-link {
-  font-size: 1.1em;
+
+.no-background #background {
+  display: none;
 }
+
 .container {
   padding-top: 20px;
 }
+
 .footer {
   background-color: #f8f9fa;
   padding: 20px 0;
@@ -26,23 +35,5 @@
   width: 100%;
 }
 
-
-#background.with-background .wrapper{
-  display : flex;
-  transition: all 1s ease-in-out;
-}
-
-#background.with-background img {
-  background-position: cover;
-  width : 100vw;
-  height : 600px;
-}
-
-#background.with-background {
-  width : 100vw;
-  overflow: hidden;
-  margin: 0 auto;
-  display : flex;
-}
 
 
