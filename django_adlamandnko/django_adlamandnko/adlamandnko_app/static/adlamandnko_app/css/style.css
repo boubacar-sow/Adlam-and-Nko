@@ -1,39 +1,145 @@
 /* static/adlamandnko_app/css/style.css */
-#background {
-  width: 100vw;
-  overflow: hidden;
-  margin: 0 auto;
-  display: flex;
+.navbar-brand {
+  font-weight: bold;
 }
 
-#background.with-background .wrapper {
-  display: flex;
-  transition: all 1s ease-in-out;
+.navbar-nav .nav-link {
+  font-size: 18px;
 }
 
-#background.with-background:not(.no-background) .wrapper {
-  background-image: url("{% static 'adlamandnko_app/images/adlam.jpg' %}");
-  background-position: cover;
-  width: 100vw;
-  height: 600px;
+/* static/adlamandnko_app/css/style.css */
+.navbar-brand {
+  font-weight: bold;
 }
-
-.no-background #background {
-  display: none;
+.nav-link {
+  font-size: 1.1em;
 }
-
 .container {
   padding-top: 20px;
 }
-
 .footer {
   background-color: #f8f9fa;
   padding: 20px 0;
   text-align: center;
-  position: fixed;
   bottom: 0;
   width: 100%;
+  margin-top: 10px;
 }
 
 
+#background.with-background .wrapper{
+  display : flex;
+  transition: all 1s ease-in-out;
+}
 
+#background.with-background img {
+  background-position: cover;
+  width : 100vw;
+  height : 600px;
+}
+
+#background.with-background {
+  width : 100vw;
+  overflow: hidden;
+  margin: 0 auto;
+  display : flex;
+}
+
+
+/* Additional CSS for the annotate page */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+#annotate-form label {
+  font-weight: bold;
+}
+
+.container h2 {
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.virtual-keyboard {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1000; /* Ensure it’s above other elements */
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.keyboard-key {
+  padding: 10px;
+  margin: 2px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.keyboard-key:hover {
+  background: #eee;
+}
+
+.keyboard-key:active {
+  background: #ddd;
+}
+
+.container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.container p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+#examples, #adlam-examples {
+  margin-top: 20px;
+}
+
+.example {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.example p {
+  margin: 5px 0;
+}
+
+.example strong {
+  color: #007bff;
+}

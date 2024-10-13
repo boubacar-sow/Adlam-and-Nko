@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap_themes',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'adlamandnko_app',
     'users',
 ]
@@ -143,3 +144,5 @@ LOGIN_REDIRECT_URL = '/users/profile'
 
 LOGIN_URL = '/users/login/'  # This is the correct login URL for your app
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

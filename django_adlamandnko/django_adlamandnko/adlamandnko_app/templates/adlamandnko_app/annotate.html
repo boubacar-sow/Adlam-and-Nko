@@ -1,0 +1,79 @@
+{% extends 'adlamandnko_app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Annotate{% endblock %}
+{% block body_class %}no-background{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Annotate</h2>
+  <form id="annotate-form" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="language-select">Select Language:</label>
+      <select name="language" class="form-control" id="language-select" required>
+        <option value="adlam" selected>Adlam</option>
+        <option value="nko">N'ko</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="direction-select">Select Direction:</label>
+      <select name="direction" class="form-control" id="direction-select" required>
+        <!-- Options will be filled by JavaScript -->
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="original-text">Original Text:</label>
+      {{ form.original_text }}
+    </div>
+    <div class="form-group">
+      <label for="latin-text">Translation in Latin Alphabet (optional):</label>
+      {{ form.latin_text }}
+    </div>
+    <div class="form-group">
+      <label for="translated-text">Translated Text:</label>
+      {{ form.translated_text }}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div id="virtual-keyboard-container"></div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src="{% static 'adlamandnko_app/js/keyboard.js' %}"></script>
+<script src="{% static 'adlamandnko_app/js/keyboardInit.js' %}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const languageSelect = document.getElementById('language-select');
+    const directionSelect = document.getElementById('direction-select');
+
+    const directions = {
+      adlam: ['adlam-to-french', 'french-to-adlam'],
+      nko: ['nko-to-french', 'french-to-nko']
+    };
+
+    const directionOptions = {
+      'adlam-to-french': 'Adlam-to-French',
+      'french-to-adlam': 'French-to-Adlam',
+      'nko-to-french': 'N\'ko-to-French',
+      'french-to-nko': 'French-to-N\'ko'
+    };
+
+    function updateDirections(selectedLanguage) {
+      directionSelect.innerHTML = '';
+      directions[selectedLanguage].forEach(function (direction) {
+        const option = document.createElement('option');
+        option.value = direction;
+        option.text = directionOptions[direction];
+        directionSelect.appendChild(option);
+      });
+    }
+
+    languageSelect.addEventListener('change', function () {
+      updateDirections(languageSelect.value);
+    });
+
+    // Initialize directions based on the default selected language
+    updateDirections(languageSelect.value);
+  });
+</script>
+{% endblock %}

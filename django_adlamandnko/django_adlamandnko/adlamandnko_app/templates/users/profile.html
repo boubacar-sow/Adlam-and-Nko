@@ -1,7 +1,22 @@
 {% extends 'adlamandnko_app/base.html' %}
-
-{% block title %}
-    Votre profil
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Your Profile</h2>
+  <!-- Profile details... -->
+  <h3>Your Annotations</h3>
+  <ul>
+    {% for annotation in user.annotation_set.all %}
+    <li>
+      <strong>{{ annotation.language }} - {{ annotation.direction }}</strong><br>
+      Original: {{ annotation.original_text }}<br>
+      Latin: {{ annotation.latin_text }}<br>
+      Translated: {{ annotation.translated_text }}<br>
+      <em>Created on: {{ annotation.created_at }}</em>
+    </li>
+    {% empty %}
+    <li>You have no annotations yet.</li>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock %}
-
-{% block body_class %}no-background{% endblock %}

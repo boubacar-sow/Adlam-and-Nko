@@ -10,6 +10,9 @@ python = "^3.12"
 django = "^5.1.2"
 django-bootstrap-themes = "^3.3.6"
 tree = "^0.2.4"
+django-crispy-forms = "^2.3"
+crispy-bootstrap5 = "^2024.10"
+keyboard = "^0.13.5"
 
 
 [build-system]
