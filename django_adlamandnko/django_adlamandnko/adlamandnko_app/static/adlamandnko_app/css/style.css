@@ -198,3 +198,11 @@ input.form-control:focus {
 #formFeedback {
   display: none;
 }
+
+.text-red-500 {
+  color: #f56565; /* Red color for error messages */
+}
+
+.hidden {
+  display: none; /* Utility class for hiding elements */
+}

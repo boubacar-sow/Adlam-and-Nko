@@ -5,9 +5,28 @@
 {% block content %}
 <div class="container mt-4 max-w-md mx-auto bg-white p-6 shadow-lg rounded-lg">
     <h2 class="text-2xl font-bold mb-4">Register</h2>
-    <form method="POST" id="registerForm">
+    <form method="POST" id="registerForm" action="{% url 'register' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group mb-4">
+            <label for="username" class="block text-gray-700">Username</label>
+            {{ form.username }}
+            <p class="text-red-500 text-sm hidden" id="usernameError">Username is required.</p>
+        </div>
+        <div class="form-group mb-4">
+            <label for="email" class="block text-gray-700">Email</label>
+            {{ form.email }}
+            <p class="text-red-500 text-sm hidden" id="emailError">Valid email is required.</p>
+        </div>
+        <div class="form-group mb-4">
+            <label for="password1" class="block text-gray-700">Password</label>
+            {{ form.password1 }}
+            <p class="text-red-500 text-sm hidden" id="password1Error">Password is required.</p>
+        </div>
+        <div class="form-group mb-4">
+            <label for="password2" class="block text-gray-700">Password confirmation</label>
+            {{ form.password2 }}
+            <p class="text-red-500 text-sm hidden" id="password2Error">Passwords must match.</p>
+        </div>
         <button type="submit" class="btn btn-primary bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">Register</button>
     </form>
     <p id="formFeedback" class="text-red-500 mt-4 hidden"></p>
@@ -15,27 +34,112 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const registerForm = document.getElementById('registerForm');
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function validateForm() {
+        let valid = true;
+
+        // Username validation
+        const username = document.getElementById('id_username').value;
+        const usernameError = document.getElementById('usernameError');
+        if (username === '') {
+            usernameError.classList.remove('hidden');
+            valid = false;
+        } else {
+            usernameError.classList.add('hidden');
+        }
+
+        // Email validation
+        const email = document.getElementById('id_email').value;
+        const emailError = document.getElementById('emailError');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            emailError.classList.remove('hidden');
+            valid = false;
+        } else {
+            emailError.classList.add('hidden');
+        }
+
+        // Password validation
+        const password1 = document.getElementById('id_password1').value;
+        const password1Error = document.getElementById('password1Error');
+        if (password1 === '') {
+            password1Error.classList.remove('hidden');
+            valid = false;
+        } else {
+            password1Error.classList.add('hidden');
+        }
+
+        // Password confirmation validation
+        const password2 = document.getElementById('id_password2').value;
+        const password2Error = document.getElementById('password2Error');
+        if (password1 !== password2) {
+            password2Error.classList.remove('hidden');
+            valid = false;
+        } else {
+            password2Error.classList.add('hidden');
+        }
+
+        return valid;
+    }
+
     registerForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the form from submitting normally
 
-        const formFeedback = document.getElementById('formFeedback');
-        formFeedback.classList.add('hidden'); // Hide any previous feedback
+        if (validateForm()) {
+            const csrftoken = getCookie('csrftoken');
+            const formData = new FormData(registerForm);
+            const formFeedback = document.getElementById('formFeedback');
+            formFeedback.classList.add('hidden'); // Hide any previous feedback
 
-        // Add interactive behavior, e.g., indicating the form is being processed
-        formFeedback.textContent = 'Registering...';
-        formFeedback.classList.remove('hidden');
+            // Add interactive behavior, e.g., indicating the form is being processed
+            formFeedback.textContent = 'Registering...';
+            formFeedback.classList.remove('hidden');
 
-        // Fake register process
-        setTimeout(() => {
-            formFeedback.textContent = 'Registration successful! Redirecting...';
-            formFeedback.classList.remove('text-red-500');
-            formFeedback.classList.add('text-green-500');
+            fetch(registerForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': csrftoken
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    formFeedback.textContent = 'Registration successful! Redirecting...';
+                    formFeedback.classList.remove('text-red-500');
+                    formFeedback.classList.add('text-green-500');
 
-            // Redirect after a delay (simulate a real registration)
-            setTimeout(() => {
-                registerForm.submit();
-            }, 1000);
-        }, 2000);
+                    // Redirect after a delay (simulate a real registration)
+                    setTimeout(() => {
+                        window.location.href = data.redirect_url;
+                    }, 1000);
+                } else {
+                    formFeedback.textContent = data.error || 'Registration failed. Please try again.';
+                    formFeedback.classList.remove('text-green-500');
+                    formFeedback.classList.add('text-red-500');
+                }
+            })
+            .catch(error => {
+                formFeedback.textContent = 'An error occurred. Please try again.';
+                formFeedback.classList.remove('text-green-500');
+                formFeedback.classList.add('text-red-500');
+            });
+        }
     });
 });
 </script>
