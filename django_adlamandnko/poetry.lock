@@ -105,6 +105,37 @@ files = [
 django = ">=4.2"
 
 [[package]]
+name = "django-theme-material-kit"
+version = "1.0.19"
+description = "Modern template for Django (Material Kit)"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-theme-material-kit-1.0.19.tar.gz", hash = "sha256:dfda8b3356b84b573149483ca2cea9e8ccd2178504ef9613231c6b77f4ba936b"},
+]
+
+[[package]]
+name = "gunicorn"
+version = "23.0.0"
+description = "WSGI HTTP Server for UNIX"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "gunicorn-23.0.0-py3-none-any.whl", hash = "sha256:ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d"},
+    {file = "gunicorn-23.0.0.tar.gz", hash = "sha256:f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec"},
+]
+
+[package.dependencies]
+packaging = "*"
+
+[package.extras]
+eventlet = ["eventlet (>=0.24.1,!=0.36.0)"]
+gevent = ["gevent (>=1.4.0)"]
+setproctitle = ["setproctitle"]
+testing = ["coverage", "eventlet", "gevent", "pytest", "pytest-cov"]
+tornado = ["tornado (>=0.2)"]
+
+[[package]]
 name = "keyboard"
 version = "0.13.5"
 description = "Hook and simulate keyboard events on Windows and Linux"
@@ -117,6 +148,17 @@ files = [
 
 [package.dependencies]
 pyobjc = {version = "*", markers = "sys_platform == \"darwin\""}
+
+[[package]]
+name = "packaging"
+version = "24.1"
+description = "Core utilities for Python packages"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "packaging-24.1-py3-none-any.whl", hash = "sha256:5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124"},
+    {file = "packaging-24.1.tar.gz", hash = "sha256:026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"},
+]
 
 [[package]]
 name = "pillow"
@@ -3066,6 +3108,20 @@ pyobjc-core = ">=10.3.1"
 pyobjc-framework-Cocoa = ">=10.3.1"
 
 [[package]]
+name = "python-dotenv"
+version = "1.0.1"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "python-dotenv-1.0.1.tar.gz", hash = "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"},
+    {file = "python_dotenv-1.0.1-py3-none-any.whl", hash = "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a"},
+]
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
 name = "setuptools"
 version = "75.1.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
@@ -3099,6 +3155,16 @@ files = [
 [package.extras]
 dev = ["build", "hatch"]
 doc = ["sphinx"]
+
+[[package]]
+name = "str2bool"
+version = "1.1"
+description = "Convert string to boolean"
+optional = false
+python-versions = "*"
+files = [
+    {file = "str2bool-1.1.zip", hash = "sha256:dbc3c917dca831904bce8568f6fb1f91435fcffc2ec4a46d62c9aa08d7cf77c3"},
+]
 
 [[package]]
 name = "svgwrite"
@@ -3138,7 +3204,21 @@ files = [
     {file = "tzdata-2024.2.tar.gz", hash = "sha256:7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc"},
 ]
 
+[[package]]
+name = "whitenoise"
+version = "6.7.0"
+description = "Radically simplified static file serving for WSGI applications"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "whitenoise-6.7.0-py3-none-any.whl", hash = "sha256:a1ae85e01fdc9815d12fa33f17765bc132ed2c54fa76daf9e39e879dd93566f6"},
+    {file = "whitenoise-6.7.0.tar.gz", hash = "sha256:58c7a6cd811e275a6c91af22e96e87da0b1109e9a53bb7464116ef4c963bf636"},
+]
+
+[package.extras]
+brotli = ["brotli"]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "a60d0eb9772dd6ae55d3f2a0bdc9864be351af2191918e72d6e5589152df0209"
+content-hash = "6bcb41fef2934a728b87e654e01c46a307e3a639a2d04fff05bbbb6a3eccf62b"

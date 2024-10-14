@@ -13,6 +13,11 @@ tree = "^0.2.4"
 django-crispy-forms = "^2.3"
 crispy-bootstrap5 = "^2024.10"
 keyboard = "^0.13.5"
+python-dotenv = "^1.0.1"
+str2bool = "^1.1"
+django-theme-material-kit = "^1.0.19"
+whitenoise = "^6.7.0"
+gunicorn = "^23.0.0"
 
 
 [build-system]

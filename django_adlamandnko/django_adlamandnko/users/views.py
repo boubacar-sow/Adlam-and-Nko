@@ -28,4 +28,4 @@ def profile(request):
 @login_required  # Only allow access to logged-in users
 def custom_logout(request):
     logout(request)
-    return redirect('index')
+    return redirect('home')

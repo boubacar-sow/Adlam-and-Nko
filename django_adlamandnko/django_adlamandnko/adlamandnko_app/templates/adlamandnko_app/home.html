@@ -1,85 +1,102 @@
 {% extends 'adlamandnko_app/base.html' %}
 {% load static %}
 {% block title %}Home{% endblock %}
+
 {% block content %}
-<div class="container mt-4">
-  <h2>Welcome to Adlam and N'ko Annotation</h2>
-  <p>Annotation, in the context of language models, refers to the process of labeling text with specific tags or information. This information can include translations, grammatical tags, or any other metadata that helps in building and improving language models. The annotated data is used to train language models to better understand and generate text in different languages.</p>
+<div class="container mx-auto text-center mt-4">
+    <section class="py-20 bg-blue-50 w-full"> <!-- Add w-full to span 100% width -->
+        <h2 class="text-4xl font-bold text-blue-600">Welcome to Adlam and N'ko Annotation</h2>
+        <p class="mt-4 text-lg text-gray-700">Enhancing language understanding and preserving cultural heritage.</p>
+    </section>
 
-  <h3>How Annotations are Used</h3>
-  <p>Annotated data is crucial for training machine learning models. In the context of language models, annotations provide the necessary information to learn from. For example, translating French sentences into Adlam script or vice versa helps the model learn how to perform these translations accurately.</p>
+    <section class="my-20 flex justify-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
+            <div class="p-6 bg-white shadow-lg rounded-lg transform hover:scale-105 transition-all duration-300">
+                <h3 class="text-2xl font-bold text-blue-600">Annotation Process</h3>
+                <p class="mt-4 text-gray-700">Annotation involves labeling text with specific tags or information for better language model training.</p>
+                <p>Annotated data is crucial for training machine learning models. Translating French sentences into Adlam script or vice versa helps the model learn how to perform these translations accurately.</p>
+            </div>
+            <div class="p-6 bg-white shadow-lg rounded-lg transform hover:scale-105 transition-all duration-300">
+                <h3 class="text-2xl font-bold text-blue-600">NLP Tasks</h3>
+                <p class="mt-4 text-gray-700">Natural Language Processing tasks like translation, sentiment analysis, and more help in understanding and generating text.</p>
+                <ul class="list-disc list-inside text-left mx-auto">
+                    <li><strong>Translation:</strong> Translating text from one language to another.</li>
+                    <li><strong>Sentiment Analysis:</strong> Determining the sentiment or emotional tone of a piece of text.</li>
+                    <li><strong>Text Summarization:</strong> Generating a summary of a longer text.</li>
+                    <li><strong>Named Entity Recognition:</strong> Identifying and classifying entities in text.</li>
+                    <li><strong>Part-of-Speech Tagging:</strong> Labeling each word in a text with its grammatical role.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  <h3>Natural Language Processing (NLP) Tasks</h3>
-  <p>NLP tasks involve various processes that enable language models to understand and generate human language. Here are some key NLP tasks and examples of how they can be applied to Adlam and N'ko languages:</p>
-  <ul>
-    <li><strong>Translation:</strong> Translating text from one language to another.</li>
-    <li><strong>Sentiment Analysis:</strong> Determining the sentiment or emotional tone of a piece of text.</li>
-    <li><strong>Text Summarization:</strong> Generating a summary of a longer text.</li>
-    <li><strong>Named Entity Recognition:</strong> Identifying and classifying entities (like names, dates, locations) in text.</li>
-    <li><strong>Part-of-Speech Tagging:</strong> Labeling each word in a text with its grammatical role (noun, verb, adjective, etc.).</li>
-  </ul>
+    <section class="text-center py-20 bg-blue-50 flex justify-center">
+        <div class="max-w-2xl w-full">
+            <h3 class="text-3xl font-bold text-blue-600">Get Involved</h3>
+            <p class="mt-4 text-lg text-gray-700">Contribute to our annotation efforts and help build better language models for Adlam and N'ko.</p>
+            <button class="mt-8 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-all duration-300">Learn More</button>
+        </div>
+    </section>
 
-  <h3>Examples of NLP Tasks</h3>
-  <div id="examples">
-    <div class="example">
-      <p><strong>Translation (English to French):</strong></p>
-      <p><strong>English:</strong> Hello, how are you?</p>
-      <p><strong>French:</strong> Bonjour, comment ça va?</p>
-    </div>
-    <div class="example">
-      <p><strong>Sentiment Analysis:</strong></p>
-      <p><strong>French Sentence:</strong> J'adore ce film, il est incroyable!</p>
-      <p><strong>Sentiment:</strong> Positive</p>
-    </div>
-    <div class="example">
-      <p><strong>Text Summarization:</strong></p>
-      <p><strong>French Text:</strong> Le film raconte l'histoire d'un jeune garçon qui découvre un monde magique caché derrière une porte secrète. Il se lance dans une aventure incroyable où il rencontre des créatures fantastiques et découvre son propre potentiel.</p>
-      <p><strong>Summary:</strong> Un garçon découvre un monde magique et vit une aventure incroyable.</p>
-    </div>
-    <div class="example">
-      <p><strong>Named Entity Recognition:</strong></p>
-      <p><strong>French Sentence:</strong> Emmanuel Macron est le président de la France en 2021.</p>
-      <p><strong>Entities:</strong> <em>Emmanuel Macron</em> (Person), <em>France</em> (Location), <em>2021</em> (Date)</p>
-    </div>
-    <div class="example">
-      <p><strong>Part-of-Speech Tagging:</strong></p>
-      <p><strong>French Sentence:</strong> Le chat noir dort paisiblement.</p>
-      <p><strong>POS Tags:</strong> <em>Le</em> (Det), <em>chat</em> (Noun), <em>noir</em> (Adj), <em>dort</em> (Verb), <em>paisiblement</em> (Adv)</p>
-    </div>
-  </div>
+    <section class="my-20 flex justify-center">
+        <div class="max-w-4xl w-full">
+            <h3 class="text-3xl font-bold text-blue-600">Examples of NLP Tasks</h3>
+            <div id="examples" class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center mt-4">
+                <div class="example p-4 bg-white shadow-md rounded-lg">
+                    <p><strong>Translation (English to French):</strong></p>
+                    <p><strong>English:</strong> Hello, how are you?</p>
+                    <p><strong>French:</strong> Bonjour, comment ça va?</p>
+                </div>
+                <div class="example p-4 bg-white shadow-md rounded-lg">
+                    <p><strong>Sentiment Analysis:</strong></p>
+                    <p><strong>French Sentence:</strong> J'adore ce film, il est incroyable!</p>
+                    <p><strong>Sentiment:</strong> Positive</p>
+                </div>
+                <div class="example p-4 bg-white shadow-md rounded-lg">
+                    <p><strong>Text Summarization:</strong></p>
+                    <p><strong>French Text:</strong> Le film raconte l'histoire d'un jeune garçon qui découvre un monde magique...</p>
+                    <p><strong>Summary:</strong> Un garçon découvre un monde magique et vit une aventure incroyable.</p>
+                </div>
+                <div class="example p-4 bg-white shadow-md rounded-lg">
+                    <p><strong>Named Entity Recognition:</strong></p>
+                    <p><strong>French Sentence:</strong> Emmanuel Macron est le président de la France en 2021.</p>
+                    <p><strong>Entities:</strong> <em>Emmanuel Macron</em> (Person), <em>France</em> (Location), <em>2021</em> (Date)</p>
+                </div>
+                <div class="example p-4 bg-white shadow-md rounded-lg">
+                    <p><strong>Part-of-Speech Tagging:</strong></p>
+                    <p><strong>French Sentence:</strong> Le chat noir dort paisiblement.</p>
+                    <p><strong>POS Tags:</strong> <em>Le</em> (Det), <em>chat</em> (Noun), <em>noir</em> (Adj), <em>dort</em> (Verb), <em>paisiblement</em> (Adv)</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <h3>Potential Applications for Adlam and N'ko Language Models</h3>
-  <p>Once we develop robust AI models for Adlam and N'ko languages, we can leverage these models for various NLP tasks similar to those demonstrated above. Here are some exciting possibilities:</p>
-  <ul>
-    <li><strong>Translation:</strong> Seamlessly translate texts between Adlam, N'ko, and other languages, enhancing cross-cultural communication.</li>
-    <li><strong>Sentiment Analysis:</strong> Understand the emotional tone in Adlam and N'ko texts, which can be useful for social media analysis, customer feedback, and more.</li>
-    <li><strong>Text Summarization:</strong> Generate concise summaries of long Adlam and N'ko documents, making information more accessible.</li>
-    <li><strong>Named Entity Recognition:</strong> Identify and classify names, locations, dates, and other entities in Adlam and N'ko texts for improved information extraction.</li>
-    <li><strong>Part-of-Speech Tagging:</strong> Enhance grammatical analysis and processing of Adlam and N'ko texts by identifying the roles of words.</li>
-  </ul>
-
-  <h3>Examples of French to Adlam Translations</h3>
-  <div id="adlam-examples">
-    <div class="example">
-      <p><strong>French:</strong> Bonjour, comment ça va?</p>
-      <p><strong>Adlam:</strong> 𞤄𞤶𞤲𞥄𞤼𞤶𞤲𞤥𞤢 𞤤𞤢𞤲𞥄𞤩𞤭 𞤤𞤢𞤥𞤭?</p>
-    </div>
-    <div class="example">
-      <p><strong>French:</strong> Je t'aime</p>
-      <p><strong>Adlam:</strong> 𞤢𞥄𞤱𞤢𞤲𞤵𞤢</p>
-    </div>
-    <!-- Add more examples as needed -->
-  </div>
+    <section id="adlam-examples" class="my-20 text-center flex justify-center">
+        <div class="max-w-2xl">
+            <h3 class="text-3xl font-bold text-blue-600">Examples of French to Adlam Translations</h3>
+            <div class="example p-4 bg-white shadow-md rounded-lg mt-4">
+              <p><strong>French:</strong> Bonjour, comment ça va?</p>
+              <p><strong>Adlam:</strong> 𞤸𞤵𞥅𞤺𞤮𞤳𞤼𞤶, 𞤼𞤵𞤢𞤱𞥄𞤢𞤼𞥅𞤤𞤴𞤺𞤲𞤮?</p>
+            </div>
+            <div class="example p-4 bg-white shadow-md rounded-lg mt-4">
+              <p><strong>French:</strong> Je t'aime</p>
+              <p><strong>Adlam:</strong> 𞤧𞤢𞤴𞥅𞤤𞥄𞤶𞤣𞤢𞤥𞤣𞤢𞤴</p>
+            </div>
+          </div>
+    </section>
 </div>
 
 <script>
-  // Add any interactivity or additional JavaScript here
-  document.addEventListener('DOMContentLoaded', function () {
-    const examples = document.getElementById('examples');
-    examples.style.cursor = 'pointer';
-    examples.addEventListener('click', function () {
-      alert('Explore more translations by participating in our annotation efforts!');
+document.addEventListener('DOMContentLoaded', function () {
+    const elements = document.querySelectorAll('.transform');
+    elements.forEach(el => {
+        el.addEventListener('mouseover', function () {
+            this.classList.add('scale-110');
+        });
+        el.addEventListener('mouseout', function () {
+            this.classList.remove('scale-110');
+        });
     });
-  });
+});
 </script>
 {% endblock %}

@@ -1,26 +1,61 @@
 {% extends 'adlamandnko_app/base.html' %}
-
-{% block title %}
-    Login
-{% endblock %}
-
+{% load static %}
+{% block title %}Login{% endblock %}
 {% block body_class %}no-background{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-    <h2>Login</h2>
-    <form method="POST">
+<div class="container mt-4 max-w-md mx-auto bg-white p-6 shadow-lg rounded-lg">
+    <h2 class="text-2xl font-bold mb-4">Login</h2>
+    <form method="POST" id="loginForm">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" name="username" class="form-control" id="username" required>
+        <div class="form-group mb-4">
+            <label for="username" class="block text-gray-700">Username</label>
+            <input type="text" name="username" class="form-control border-2 border-gray-200 p-2 w-full rounded" id="username" required>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" id="password" required>
+        <div class="form-group mb-4">
+            <label for="password" class="block text-gray-700">Password</label>
+            <input type="password" name="password" class="form-control border-2 border-gray-200 p-2 w-full rounded" id="password" required>
         </div>
         <input type="hidden" name="next" value="{{ request.GET.next }}">
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">Login</button>
     </form>
+    <p id="formFeedback" class="text-red-500 mt-4 hidden"></p>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const formFeedback = document.getElementById('formFeedback');
+
+        formFeedback.classList.add('hidden'); // Hide any previous feedback
+
+        // Simple validation
+        if (username === '' || password === '') {
+            formFeedback.textContent = 'Username and password cannot be empty.';
+            formFeedback.classList.remove('hidden');
+            return;
+        }
+
+        // Add interactive behavior, e.g., indicating the form is being processed
+        formFeedback.textContent = 'Logging in...';
+        formFeedback.classList.remove('hidden');
+
+        // Fake login process
+        setTimeout(() => {
+            formFeedback.textContent = 'Login successful! Redirecting...';
+            formFeedback.classList.remove('text-red-500');
+            formFeedback.classList.add('text-green-500');
+
+            // Redirect after a delay (simulate a real login)
+            setTimeout(() => {
+                loginForm.submit();
+            }, 1000);
+        }, 2000);
+    });
+});
+</script>
 {% endblock %}
