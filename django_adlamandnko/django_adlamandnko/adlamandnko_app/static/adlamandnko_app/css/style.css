@@ -22,14 +22,12 @@
 }
 
 .container {
-  padding-top: 20px;
   width: 100%;
   padding: 0 5rem;
 }
 
 .container0 {
   width: 100%;
-  padding: 0 5rem;
 }
 
 .footer {
@@ -44,12 +42,14 @@
 #background.with-background .wrapper {
   display: flex;
   transition: all 1s ease-in-out;
+  padding: 0;
+  margin: 0;
 }
 
 #background.with-background img {
   display: none; /* Hide all images */
-  max-width: 80%; /* Adjust the width to your liking */
-  max-height: 600px; /* Set a consistent height */
+  width: 90%; /* Adjust the width to your liking */
+  height: 700px; /* Set a consistent height */
   object-fit: contain; /* Maintain aspect ratio */
 }
 
