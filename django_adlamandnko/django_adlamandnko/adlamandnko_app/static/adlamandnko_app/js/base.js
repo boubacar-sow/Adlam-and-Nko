@@ -5,7 +5,7 @@ let currentIndex = 0;
 
 function slideImages() {
     images.forEach((img, index) => {
-        img.style.display = index === currentIndex ? 'block' : 'none';
+        img.style.display = index !== currentIndex ? 'block' : 'none';
     });
     currentIndex = (currentIndex + 1) % images.length;
 }
