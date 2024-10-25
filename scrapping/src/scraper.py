@@ -15,15 +15,19 @@ def fetch_html(url):
 def extract_all_website_links(html):
     soup = BeautifulSoup(html, 'html.parser')
     articles = []
-    for link in soup.find_all('a', href=True):
-        articles.append(link['href'])
+    for div in soup.find_all('div'):
+        a = div.find('a', href=True)
+        if a:
+            articles.append(a['href'])
     
     return articles
 
 def extract_articles_links(html):
     soup = BeautifulSoup(html, 'html.parser')
     articles = []
-    for h2 in soup.find_all('h2', class_='multi-category-post-title'):
+    for h2 in soup.find_all('h2', class_='multi-category-post-title') \
+        + soup.find_all('h2', class_="entry-title") \
+        + soup.find_all('h2', class_='big-small-category-post-title'):
         a = h2.find('a', href=True)
         if a:
             articles.append(a['href'])
@@ -31,7 +35,11 @@ def extract_articles_links(html):
 
 def parse_article(html):
     soup = BeautifulSoup(html, 'html.parser')
-    title = soup.find('h1', class_='entry-title').get_text()
+    title = soup.find('h1', class_='entry-title')
+    if title:
+        title = title.get_text()
+    else:
+        return
     content_div = soup.find('div', class_='entry-content')
     
     content_paragraphs = [p.get_text() for p in content_div.find_all('p')]
